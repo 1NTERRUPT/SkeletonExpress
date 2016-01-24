@@ -1,0 +1,16 @@
+{
+  "name": "interrupt",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "mylesforrest <mforrest@checkernet.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
