@@ -1,6 +1,5 @@
+// Gogogo!
 $(function(){
-	console.log('Interrupt js loaded');
-
 	$('.red').on('click', function(e){
 		e.preventDefault();
 	});
