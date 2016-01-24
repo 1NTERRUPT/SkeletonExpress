@@ -3,7 +3,7 @@ var app = express();
 
 app.set('view engine', 'jade');
 
-//app.use('/static', express.static('public'));
+app.use('/static', express.static('bower_components'));
 
 app.get('/', function(req, res){
 	res.render('index', {});
