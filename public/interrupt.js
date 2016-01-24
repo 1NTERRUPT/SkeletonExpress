@@ -1,5 +1,7 @@
 // Gogogo!
 $(function(){
+	var socket = io('http://localhost:3000');
+
 	$('.red').on('click', function(e){
 		e.preventDefault();
 	});
@@ -12,9 +14,14 @@ $(function(){
 		e.preventDefault();
 	});
 
-	var socket = io('http://localhost:3000');
+	//
 
-	socket.on('lol', function (data) {
+	$('.status').on('click', function(e){
+		e.preventDefault();
+		socket.emit('getLightStatus');
+	});
+
+	socket.on('lightStatus', function (data) {
 		console.log(data);
 	});
 });

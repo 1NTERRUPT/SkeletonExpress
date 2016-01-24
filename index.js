@@ -21,6 +21,10 @@ serialPort.list(function(err, ports){
 // 	baudrate: 57600
 // });
 
+function pollLightStatus(){
+	return ['red', 'green'];
+}
+
 // Express configuration
 app.set('view engine', 'jade');
 
@@ -34,7 +38,9 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-	socket.emit('lol', {lol: 'lol'});
+	socket.on('getLightStatus', function(){
+		socket.emit('lightStatus', pollLightStatus());
+	})
 })
 
 // Gogogo!
