@@ -52,6 +52,7 @@ $(function(){
 
 	//
 	socket.on('lightStatus', function (data) {
-		console.log(data);
+		var message = 'Light A is ' + data[0] + '; light B is ' + data[1];
+		$('.message').html(message);
 	});
 });
