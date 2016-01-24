@@ -1,6 +1,8 @@
 // Dependencies
 var express = require('express');
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 // SerialPort handling
 /*
@@ -31,7 +33,11 @@ app.get('/', function(req, res){
 	res.render('index', {});
 });
 
+io.on('connection', function(socket){
+	socket.emit('lol', {lol: 'lol'});
+})
+
 // Gogogo!
-app.listen(3000, function(){
+server.listen(3000, function(){
 	console.log('Listening on port 3000');
 });

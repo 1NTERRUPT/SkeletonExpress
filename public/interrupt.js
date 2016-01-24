@@ -11,4 +11,10 @@ $(function(){
 	$('.blue').on('click', function(e){
 		e.preventDefault();
 	});
+
+	var socket = io('http://localhost:3000');
+
+	socket.on('lol', function (data) {
+		console.log(data);
+	});
 });
