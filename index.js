@@ -2,6 +2,23 @@
 var express = require('express');
 var app = express();
 
+// SerialPort handling
+/*
+var serialPort = require('serialport');
+serialPort.list(function(err, ports){
+	ports.forEach(function(port){
+		console.log(port.comName);
+		console.log(port.pnpId);
+		console.log(port.manufacturer);
+	});
+});
+*/
+
+// var SerialPort = require('serialport').SerialPort;
+// var cereal = new SerialPort('', {
+// 	baudrate: 57600
+// });
+
 // Express configuration
 app.set('view engine', 'jade');
 
