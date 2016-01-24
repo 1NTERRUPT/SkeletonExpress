@@ -2,6 +2,13 @@
 $(function(){
 	var socket = io('http://localhost:3000');
 
+	//
+	$('.status').on('click', function(e){
+		e.preventDefault();
+		socket.emit('getLightStatus');
+	});
+
+	//
 	$('.lightA').on('click', function(e){
 		e.preventDefault();
 		socket.emit('lightTransition', 'A');
@@ -12,11 +19,38 @@ $(function(){
 		socket.emit('lightTransition', 'B');
 	});
 
-	$('.status').on('click', function(e){
+	//
+	$('.setAGreen').on('click', function(e){
 		e.preventDefault();
-		socket.emit('getLightStatus');
+		socket.emit('lightSet', ['A', 'green']);
 	});
 
+	$('.setAYellow').on('click', function(e){
+		e.preventDefault();
+		socket.emit('lightSet', ['A', 'yellow']);
+	});
+
+	$('.setARed').on('click', function(e){
+		e.preventDefault();
+		socket.emit('lightSet', ['A', 'red']);
+	});
+
+	$('.setBGreen').on('click', function(e){
+		e.preventDefault();
+		socket.emit('lightSet', ['B', 'green']);
+	});
+
+	$('.setBYellow').on('click', function(e){
+		e.preventDefault();
+		socket.emit('lightSet', ['B', 'yellow']);
+	});
+
+	$('.setBRed').on('click', function(e){
+		e.preventDefault();
+		socket.emit('lightSet', ['B', 'red']);
+	});
+
+	//
 	socket.on('lightStatus', function (data) {
 		console.log(data);
 	});

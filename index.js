@@ -12,7 +12,11 @@ function pollLightStatus(){
 
 // Replace the contents of this function with code that interacts with the 'duino
 function transitionLight(whichLight){
-	console.log('Transitioning light status of light ' + whichLight);
+	console.log('Transitioning light ' + whichLight);
+}
+
+function lightSet(whichLight, status){
+	console.log('Setting light ' + whichLight + ' to ' + status);
 }
 
 // Express configuration
@@ -34,6 +38,10 @@ io.on('connection', function(socket){
 
 	socket.on('lightTransition', function(data){
 		transitionLight(data);
+	});
+
+	socket.on('lightSet', function(data){
+		lightSet(data[0], data[1]);
 	});
 });
 
