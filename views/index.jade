@@ -5,7 +5,7 @@ html
 		script(src='socket.io/socket.io.js')
 	body
 		h1 interrupt
-		form
+		form(action='login', method='post')
 			button.status Get Status
 			div.message
 			br
@@ -14,7 +14,7 @@ html
 			br
 			input.password(value='password')
 			br
-			input(type='submit' value='Login')
+			input(type='submit', value='Login')
 			//- br
 			//- br
 			//- button.lightA Safe Transition A

@@ -32,6 +32,11 @@ app.get('/', function(req, res){
 	res.render('index', {});
 });
 
+app.post('/login', function(req, res){
+	console.log(req.params);
+	res.render('admin', {});
+});
+
 // Handlers for the socket.io sockets
 io.on('connection', function(socket){
 	socket.on('getLightStatus', function(){
