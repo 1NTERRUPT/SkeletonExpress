@@ -4,23 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-// SerialPort handling
-/*
-var serialPort = require('serialport');
-serialPort.list(function(err, ports){
-	ports.forEach(function(port){
-		console.log(port.comName);
-		console.log(port.pnpId);
-		console.log(port.manufacturer);
-	});
-});
-*/
-
-// var SerialPort = require('serialport').SerialPort;
-// var cereal = new SerialPort('', {
-// 	baudrate: 57600
-// });
-
+// Replace the contents of this function with, you, know, a poll to the 'duino
 function pollLightStatus(){
 	return ['red', 'green'];
 }
