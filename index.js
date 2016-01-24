@@ -4,7 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-// Replace the contents of this function with, you, know, a poll to the 'duino
+// Replace the contents of this function with code that interacts with the 'duino
 function pollLightStatus(){
 	console.log('Polling light status from hardware...');
 	return ['red', 'green'];
@@ -15,6 +15,7 @@ function transitionLight(whichLight){
 	console.log('Transitioning light ' + whichLight);
 }
 
+// Replace the contents of this function with code that interacts with the 'duino
 function lightSet(whichLight, status){
 	console.log('Setting light ' + whichLight + ' to ' + status);
 }
@@ -31,6 +32,7 @@ app.get('/', function(req, res){
 	res.render('index', {});
 });
 
+// Handlers for the socket.io sockets
 io.on('connection', function(socket){
 	socket.on('getLightStatus', function(){
 		socket.emit('lightStatus', pollLightStatus());
